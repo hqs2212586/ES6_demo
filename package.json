@@ -1,0 +1,17 @@
+{
+  "name": "npm_study",
+  "version": "1.0.3",
+  "description": "学习npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "123"
+  ],
+  "author": "hqs",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
