@@ -5,7 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<script>
+<script type="text/javascript">
+
+    // es5函数
+    // 普通函数：
+    function add(a, b) {
+        return a+b;
+    };
+    alert(add(1,2));   // 3
+
+    // 函数对象：
+    var add = function (a, b) {
+        return a+b;
+    };
+    alert(add(3,4));   // 7
+
     // var f = function (a) {
     //     console.log("似乎是");
     //     return a;
@@ -13,38 +27,60 @@
     // f(1);
 
     // 字面量方式创建对象
-    // var person1 = {
-    //     name: "日天",
-    //     age: 30,
-    //     fav:function () {
-    //         // 这里的this是使用时定义的对象 person1
-    //         console.log(this);
-    //         console.log(this.name);
-    //     }
-    // };
-    // person1.fav();
-    //
-    // var person2 = {
-    //     name: "灭天",
-    //     age: 29,
-    //     fav: () => {
-    //         // 如果使用箭头函数，this指的是定义时使用的对象，指向了window
-    //         console.log(this);
-    //         console.log(this.name);
-    //     }
-    // }
-    // person2.fav();
-    //
-    // var person3 = {
-    //      name:'小马哥',
-    //      age:18,
-    //      fav: ()=>{
-    //          console.log(argument);
-    //      }
-    //  }
-    //
-    // person3.fav()
+    var person1 = {
+        name: "日天",
+        age: 30,
+        fav:function () {
+            // 这里的this是使用时定义的对象 person1
+            console.log(this);
+            console.log(this.name);
+        }
+    };
+    person1.fav();
+    /*
+    * {name: "日天", age: 30, fav: ƒ}
+    * 日天
+    */
 
+    var person2 = {
+        name: "灭天",
+        age: 29,
+        fav: () => {
+            // 如果使用箭头函数，this指的是定义时使用的对象，指向了window
+            console.log(this);
+            console.log(this.name);
+        }
+    };
+    person2.fav();
+    /*
+    *  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
+    *
+    */
+
+
+    var person3 = {
+         name:'小马哥',
+         age:18,
+         fav: function (content) {
+             console.log(arguments[0]);
+         }
+     };
+    person3.fav('哈哈哈');
+    /*
+    * 哈哈哈
+    */
+
+    var person4 = {
+         name:'小马哥',
+         age:18,
+         fav: (content)=>{
+             console.log(arguments[0]);
+         }
+     };
+    person4.fav('哈哈哈');
+    /*
+    * Uncaught ReferenceError: arguments is not defined
+    */
 </script>
 </body>
 </html>

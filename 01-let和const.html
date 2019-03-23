@@ -6,22 +6,42 @@
 </head>
 <body>
 <script type="text/javascript">
-    // let声明的变量是 块级作用域
+    // es5中声明变量使用var
+    // 1.因为变量提升导致var声明的变量属于全局作用域
+    // console.log(a);  // undefined
+    // var a;
+    // a = 14;
+    // console.log(a);  // 14
+    // 2.var声明变量存在覆盖现象
+    // {
+    //     var c = 20;
+    //     var c = 30;
+    // }
+    // console.log(c);  // 30
+    // 循环
+    var d = [];
+    for (let i = 0; i < 20; i++) {
+        d[i] = function () {
+            console.log(i);
+        }
+    };
+    d[4]();   // 4
+    d[6]();   // 6
+    // let声明的变量是块级作用域
     // {
     //     let a = 12;
     //     var b = 14;
-    //     console.log(a);
-    //     console.log(b);
+    //     console.log(a);   // 12
+    //     console.log(b);   // 14
     // }
-    // console.log(b);
+    // console.log(b);   // 14
+    // console.log(a);   // Uncaught ReferenceError: a is not defined
+    //
+    // {
+    //     let a = 30;
+    //     let a = 40;
+    // }
     // console.log(a);
-    var a = [];
-    for (var i = 0; i < 10; i++) {
-        a[i] = function () {
-            console.log(i);
-        };
-    }
-    a[6]();
 </script>
 </body>
 </html>
