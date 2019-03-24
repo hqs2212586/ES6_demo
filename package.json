@@ -12,6 +12,7 @@
   "author": "hqs",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "vue": "^2.6.10"
   }
 }

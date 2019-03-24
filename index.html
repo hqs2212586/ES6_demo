@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{msg}}</h3>
+        <!--字符串拼接-->
+        <h3>{{msg + 'hello'}}</h3>
+        <!--三目运算符-->
+        <h3>{{1>2?"真的":"假的"}}</h3>
+        <!--可以插入字符串-->
+        <h4>{{'helloworld'.split('').reverse().join('')}}</h4>
+        <!--不能使用if-else-->
+        <!--{{}}模板语法的设计，只是为了简单的运算-->
+    </div>
+
+    <!--1.先引包-->
+    <!--<script src="js/vue.js"></script>-->
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        // 2.创建vue实例化对象
+        var app = new Vue({    // 这样定义，实例化有返回值
+            el: '#app',  // 目的地
+            data:{       // data属性可以是函数或对象
+                msg: 'hello Vue',   // 数据属性
+            }
+        });
+        console.log(app);
+        console.log(app.$el);
+        console.log(app.$el === document.getElementById('app'));
+    </script>
+</body>
+</html>
